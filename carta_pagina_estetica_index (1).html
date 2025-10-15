@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Una carta con amor</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Crimson+Text:wght@400;600&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle at top left, #ffebf0, #ffe6ea, #ffdce3);
+      font-family: 'Crimson Text', serif;
+      overflow: hidden;
+    }
+
+    .envelope {
+      position: relative;
+      width: 380px;
+      height: 240px;
+      background: #fff0f4;
+      border: 2px solid #f3b9c8;
+      border-radius: 10px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      transition: transform 1s ease-in-out;
+      cursor: pointer;
+    }
+
+    .flap {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 50%;
+      background: linear-gradient(to bottom, #f3b9c8, #f8c8d5);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      transition: transform 1s ease-in-out;
+      transform-origin: top;
+    }
+
+    .letter {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%) translateY(60%);
+      width: 85%;
+      height: 90%;
+      background: #fff;
+      border-radius: 8px;
+      padding: 25px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transition: transform 1s ease-in-out, opacity 1s ease-in-out;
+      overflow-y: auto; /* ✅ permite desplazarse para ver todo el texto */
+    }
+
+    .envelope.open .flap {
+      transform: rotateX(180deg);
+    }
+
+    .envelope.open .letter {
+      transform: translateX(-50%) translateY(-20%);
+      opacity: 1;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      color: #d36b8c;
+      font-size: 28px;
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .letter p {
+      font-size: 17px;
+      color: #5a3e47;
+      line-height: 1.6;
+      text-align: justify;
+    }
+
+    .signature {
+      margin-top: 15px;
+      text-align: right;
+      font-weight: 600;
+      color: #b25573;
+    }
+
+    .heart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 32px;
+      color: #d84c6f;
+      animation: pulse 1.8s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+      50% { transform: translate(-50%, -50%) scale(1.2); opacity: 0.8; }
+    }
+  </style>
+</head>
+<body>
+  <div class="envelope" onclick="this.classList.toggle('open')">
+    <div class="flap"></div>
+    <div class="heart">❤</div>
+    <div class="letter">
+      <h1>Una carta con amor</h1>
+      <p><strong>Para mi amada, Alessandra Flore,</strong> de parte de su mayor fan.</p>
+      <p>Buenos días, espero que haya tenido un muy buen día, y que haya despertado de la mejor manera. El motivo de esta carta es para comentarle por qué llegué tarde, ya que es de su conocimiento que mi teléfono se ha averiado. Esa situación afectó la hora de mi alarma, siendo así que esta no sonó. Lamentablemente me levanté a las 5:30 y esa hora ya es tarde. Don Wilmer me dio jalón, y tomé un bus de Villa Vieja; llegué a Tegus a las 7 a.m. Me apresuré lo más que pude a llegar. Grato fue verle y sentirme afortunado al tener el privilegio de que esa carita haya sido tocada por mis labios.</p>
+      <p><em>Qué lindo es amarte.</em></p>
+      <p class="signature">Att. Carlos Chavez</p>
+    </div>
+  </div>
+</body>
+</html>
